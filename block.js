@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   goBackButton.addEventListener('click', () => {
     chrome.storage.local.get('lastUnblockedUrl', (data) => {
       const lastUrl = data.lastUnblockedUrl;
-      // Navigate to the last good URL, or to google.com as a fallback.
-      window.location.href = lastUrl || 'https://www.google.com';
+      // Navigate to the last good URL, or to the truly safe new tab page as a fallback.
+      window.location.href = lastUrl || 'chrome://newtab';
     });
   });
 });
