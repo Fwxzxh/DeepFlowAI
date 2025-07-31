@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeepFlowAI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+
+  <!-- ========= MAIN VIEW ========= -->
+  <div id="main-view">
+    <div class="container">
+      <div class="header">
+        <h2>DeepFlowAI</h2>
+        <div class="header-controls">
+          <button id="theme-toggle" title="Toggle Dark Mode">🌓</button>
+          <button id="settings-button" title="Settings">⚙️</button>
+        </div>
+      </div>
+      <div class="intention-section">
+        <label for="intention">What is your main goal?</label>
+        <textarea id="intention" rows="5" placeholder="e.g., Finish the quarterly report..."></textarea>
+        <div class="intention-actions">
+          <button id="save-intention-btn" class="action-button">Save Current Intention</button>
+          <button id="manage-intentions-btn" class="action-button secondary">Manage Saved</button>
+        </div>
+      </div>
+      <div class="mode-section">
+        <div class="mode"><h3>Focus Mode</h3><label class="switch"><input type="checkbox" id="focus-mode-toggle"><span class="slider"></span></label></div>
+        <div class="mode"><h3>Pomodoro</h3><label class="switch"><input type="checkbox" id="pomodoro-mode-toggle"><span class="slider"></span></label></div>
+      </div>
+      <div id="pomodoro-timer" class="timer-section hidden">
+        <div class="timer-display">25:00</div>
+        <div class="timer-controls">
+          <button id="start-pomodoro">Start</button><button id="stop-pomodoro">Stop</button><button id="reset-pomodoro">Reset</button>
+        </div>
+      </div>
+      <div id="justification-area" class="justification-section hidden">
+        <h3>Current Site Analysis</h3>
+        <p id="justification-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========= SETTINGS VIEW ========= -->
+  <div id="settings-view" class="hidden">
+    <div class="container">
+      <div class="header">
+        <h2>Settings</h2>
+        <button id="back-button" class="back-button-header">← Back</button>
+      </div>
+      <div class="setting-item">
+        <label for="api-key">Gemini API Key</label>
+        <input type="password" id="api-key" placeholder="Enter your API key">
+      </div>
+      <div class="setting-item">
+        <label for="model-select">Select Gemini Model</label>
+        <select id="model-select">
+          <option value="gemini-2.5-pro">Gemini 2.5 Pro (Most Powerful)</option>
+          <option value="gemini-2.5-flash">Gemini 2.5 Flash (Best Price/Performance)</option>
+          <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+          <option value="gemini-1.5-pro-latest">Gemini 1.5 Pro (Latest)</option>
+          <option value="gemini-1.5-flash-latest">Gemini 1.5 Flash (Latest)</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label for="word-limit">Justification Word Limit</label>
+        <input type="number" id="word-limit" min="10" max="100">
+      </div>
+      <button id="save-button" class="save-button">Save Settings</button>
+      <p id="status-message"></p>
+    </div>
+  </div>
+
+  <!-- ========= SAVED INTENTIONS VIEW ========= -->
+  <div id="saved-intentions-view" class="hidden">
+    <div class="container">
+      <div class="header">
+        <h2>Saved Intentions</h2>
+        <button id="back-to-main-btn" class="back-button-header">← Back</button>
+      </div>
+      <ul id="saved-intentions-list"></ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

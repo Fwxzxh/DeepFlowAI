@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "DeepFlowAI",
+  "version": "1.0",
+  "description": "A productivity extension to help you focus on your tasks by blocking distracting websites.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [ "block.html", "block.css" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ]
+}

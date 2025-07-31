@@ -1,0 +1,62 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #fdf2f2; /* Light red background */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #5c2a2a; /* Dark red text */
+  text-align: center;
+}
+
+.lock-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.reason-intro {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  color: #7c4a4a;
+}
+
+.justification-box {
+  background-color: #fff;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  max-width: 80%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+#justification-text {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  font-style: italic;
+}
+
+.back-button {
+  margin-top: 2rem;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}

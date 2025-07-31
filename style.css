@@ -1,0 +1,456 @@
+:root {
+  --background-color-light: #ffffff;
+  --text-color-light: #212529;
+  --header-bg-light: #f8f9fa;
+  --border-color-light: #dee2e6;
+  --switch-bg-light: #ccc;
+  --slider-color-light: #fff;
+  --switch-checked-bg-light: #007bff;
+
+  --background-color-dark: #212529;
+  --text-color-dark: #f8f9fa;
+  --header-bg-dark: #343a40;
+  --border-color-dark: #495057;
+  --switch-bg-dark: #495057;
+  --slider-color-dark: #f8f9fa;
+  --switch-checked-bg-dark: #007bff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  width: 350px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.container {
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.dark-mode .header {
+  border-bottom: 1px solid var(--border-color-dark);
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.header-controls button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: inherit;
+}
+
+.intention-section {
+  margin: 15px 0;
+}
+
+.intention-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.intention-section input, .intention-section textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 4px;
+  box-sizing: border-box; /* Fixes the overflow issue */
+  resize: vertical; /* Allow vertical resizing */
+  font-family: inherit; /* Use the same font as the body */
+}
+
+.dark-mode .intention-section input {
+  background-color: var(--header-bg-dark);
+  border-color: var(--border-color-dark);
+  color: var(--text-color-dark);
+}
+
+.mode-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.mode {
+  padding: 10px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 5px;
+  width: 48%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dark-mode .mode {
+  border-color: var(--border-color-dark);
+}
+
+.mode h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
+/* Switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--switch-bg-light);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.dark-mode .slider {
+  background-color: var(--switch-bg-dark);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--slider-color-light);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.dark-mode .slider:before {
+  background-color: var(--slider-color-dark);
+}
+
+input:checked + .slider {
+  background-color: var(--switch-checked-bg-light);
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.intention-input-wrapper {
+  position: relative;
+}
+
+#save-intention-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--switch-checked-bg-light);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#save-intention-button:hover {
+  opacity: 1;
+}
+
+.saved-intentions-section {
+  margin-top: 15px;
+}
+
+.saved-intentions-section h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+#saved-intentions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#saved-intentions-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--header-bg-light);
+  border-radius: 4px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background-color 0.2s;
+}
+
+.dark-mode #saved-intentions-list li {
+  background-color: var(--header-bg-dark);
+}
+
+#saved-intentions-list li:hover {
+  background-color: var(--border-color-light);
+}
+
+.dark-mode #saved-intentions-list li:hover {
+  background-color: #495057;
+}
+
+#saved-intentions-list li button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+#saved-intentions-list li button:hover {
+  opacity: 1;
+}
+
+.intention-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.action-button {
+  width: 48%;
+  padding: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid var(--switch-checked-bg-light);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.action-button.secondary {
+  background-color: transparent;
+  color: var(--switch-checked-bg-light);
+}
+
+.action-button.secondary:hover {
+  background-color: var(--switch-checked-bg-light);
+  color: white;
+}
+
+.action-button:not(.secondary) {
+  background-color: var(--switch-checked-bg-light);
+  color: white;
+}
+
+.action-button:not(.secondary):hover {
+  opacity: 0.9;
+}
+
+/* Saved Intentions View */
+.saved-intentions-view .container {
+  height: 400px; /* Or a fixed height you prefer */
+  display: flex;
+  flex-direction: column;
+}
+
+#saved-intentions-list {
+  flex-grow: 1;
+  overflow-y: auto; /* Make the list scrollable */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 15px;
+}
+
+#saved-intentions-list li {
+  /* ... same styles as before ... */
+}
+
+.no-intentions {
+  text-align: center;
+  padding: 20px;
+  color: #6c757d;
+}
+
+/* Justification Section */
+.justification-section {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 5px;
+  background-color: var(--header-bg-light);
+}
+
+.dark-mode .justification-section {
+  border-color: var(--border-color-dark);
+  background-color: var(--header-bg-dark);
+}
+
+.justification-section h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.dark-mode .justification-section h3 {
+  color: #adb5bd;
+}
+
+.justification-section p {
+  margin: 0;
+  font-size: 0.95em;
+  font-style: italic;
+}
+
+/* Timer styles */
+.timer-section {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 5px;
+}
+
+.dark-mode .timer-section {
+  border-color: var(--border-color-dark);
+}
+
+.timer-display {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.timer-controls button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: 1px solid var(--switch-checked-bg-light);
+  background-color: var(--switch-checked-bg-light);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- Settings View Styles --- */
+
+.settings-view .container {
+  padding-top: 0;
+}
+
+.settings-view .header {
+  padding-top: 15px;
+}
+
+.back-button-header {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: var(--switch-checked-bg-light);
+  font-weight: 500;
+}
+
+.setting-item {
+  background-color: var(--header-bg-light);
+  padding: 12px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.dark-mode .setting-item {
+  background-color: var(--header-bg-dark);
+  border-color: var(--border-color-dark);
+}
+
+.setting-item label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.dark-mode .setting-item label {
+  color: #adb5bd;
+}
+
+.setting-item input, .setting-item select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  font-size: 1em;
+}
+
+.dark-mode .setting-item input, .dark-mode .setting-item select {
+  background-color: #495057;
+  border-color: #6c757d;
+  color: var(--text-color-dark);
+}
+
+.save-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--switch-checked-bg-light);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover {
+  opacity: 0.9;
+}
+
+#status-message {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #28a745;
+}
+
+.hidden {
+  display: none;
+}
